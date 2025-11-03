@@ -13,6 +13,13 @@ public:
 
     int probeIndex(const T& key, int i) const override {
         // TODO: Implement double hashing
-        return 0;
+		int index = this->hash1(key);
+		int add = hash2(key);
+
+		index = (index + (add*i)) % this->M; // we are returning the new index itsefl
+	
+		return index;
+		
+
     }
  };

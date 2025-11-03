@@ -9,9 +9,12 @@ public:
     LinearProbing(int size = 101, int skipFactor = 3)
         : HashTableClosed<T>(size), skip(skipFactor) {}
 
+
     
     int probeIndex(const T& key, int i) const override {
         // TODO: Implement linear probing with skip
-        return 0;
-    }
+		int index = this->hash1(key);
+		index = (index + (skip * i)) % this->M;
+		return index;
+    	}
 };
